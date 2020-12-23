@@ -225,8 +225,9 @@ func (s *Shell) Active() bool {
 }
 
 // Process runs shell using args in a non-interactive mode.
-func (s *Shell) Process(args ...string) error {
-	return handleInput(s, args)
+func (s *Shell) Process(args string) error {
+	a := strings.split(args, " ")
+	return handleInput(s, a)
 }
 
 func handleInput(s *Shell, line []string) error {
